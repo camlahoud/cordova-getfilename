@@ -36,16 +36,25 @@ public class GetFilename extends CordovaPlugin {
 
     private String getFile(String uri) {
 
-         Uri contentUri = Uri.parse(uri);
+         /*Uri contentUri = Uri.parse(uri);
          String[] proj = { MediaStore.Images.Media.DATA };
          CursorLoader loader = new CursorLoader(cordova.getActivity(), contentUri, proj, null, null, null);
          Cursor cursor = loader.loadInBackground();
          int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
          cursor.moveToFirst();
          String fileName = cursor.getString(column_index);
-         Log.d("", "********************************************");
-         Log.d("", fileName);
-         Log.d("", "********************************************");
-         return fileName;
+         return fileName;*/
+        Cursor cursor = getActivity().getContentResolver()
+            .query(uri, null, null, null, null, null);
+        String displayName = '';
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                displayName = cursor.getString(
+                        cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+            }
+        } finally {
+            cursor.close();
+        }
+        return displayName;
      }
 }
