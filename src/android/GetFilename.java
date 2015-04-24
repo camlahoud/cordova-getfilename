@@ -46,7 +46,7 @@ public class GetFilename extends CordovaPlugin {
          return fileName;*/
         Cursor cursor = getActivity().getContentResolver()
             .query(uri, null, null, null, null, null);
-        String displayName = '';
+        String displayName = "";
         try {
             if (cursor != null && cursor.moveToFirst()) {
                 displayName = cursor.getString(

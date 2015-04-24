@@ -26,4 +26,5 @@
         <source-file src="src/android/GetFilename.java" target-dir="src/com/plineo/cordova"/>
                         
     </platform>
+    
 </plugin>
