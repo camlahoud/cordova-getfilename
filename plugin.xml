@@ -3,7 +3,7 @@
     xmlns="http://www.phonegap.com/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android" 
     id="com.plineo.cordova.getfilename" 
-    version="0.0.0">
+    version="1.0.0">
     
     <engines>
         <engine name="cordova" version=">=2.8.0" />
@@ -23,7 +23,7 @@
             </feature> 
         </config-file> 
                 
-        <source-file src="src/android/GetFilename.java" target-dir="src/com/plineo/cordova"/>
+        <source-file src="src/android/GetFilename.java" target-dir="src/com/plineo/cordova/getfilename"/>
                         
     </platform>
     
