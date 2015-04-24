@@ -11,6 +11,17 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.Context;
+import android.content.Intent;
+import android.database.DatabaseUtils;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.os.Environment;
+import android.provider.DocumentsContract;
+import android.webkit.MimeTypeMap;
+
 /**
  * This class gets the actual file path and name from native side to JavaScript.
  */
@@ -21,7 +32,8 @@ public class GetFilename extends CordovaPlugin {
         if (action.equals("get")) {
             String uri = args.getString(0);
             //this.getRealPathFromURI(uri, callbackContext);
-            this.getPath(callbackContext, uri);
+            Uri contentUri = Uri.parse(uri);
+            this.getPath(callbackContext, contentUri);
             return true;
         }
         return false;
@@ -36,7 +48,7 @@ public class GetFilename extends CordovaPlugin {
      * @param uri The Uri to query.
      * @author paulburke
      */
-    private String getPath(final Context context, final Uri uri) {
+    private String getPath(CallbackContext context, Uri uri) {
 
         final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
 
@@ -113,7 +125,7 @@ public class GetFilename extends CordovaPlugin {
      * @param selectionArgs (Optional) Selection arguments used in the query.
      * @return The value of the _data column, which is typically a file path.
      */
-    public static String getDataColumn(Context context, Uri uri, String selection,
+    public static String getDataColumn(CallbackContext context, Uri uri, String selection,
             String[] selectionArgs) {
 
         Cursor cursor = null;
