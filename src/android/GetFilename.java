@@ -49,7 +49,7 @@ public class GetFilename extends CordovaPlugin {
      * @param uri The Uri to query.
      * @author paulburke
      */
-    private String getPath(CallbackContext context, Uri uri) {
+    private String getPath(Context context, Uri uri) {
 
         final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
 
@@ -126,7 +126,7 @@ public class GetFilename extends CordovaPlugin {
      * @param selectionArgs (Optional) Selection arguments used in the query.
      * @return The value of the _data column, which is typically a file path.
      */
-    public static String getDataColumn(CallbackContext context, Uri uri, String selection,
+    public static String getDataColumn(Context context, Uri uri, String selection,
             String[] selectionArgs) {
 
         Cursor cursor = null;
