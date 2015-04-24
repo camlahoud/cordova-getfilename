@@ -181,37 +181,4 @@ public class GetFilename extends CordovaPlugin {
     public static boolean isGooglePhotosUri(Uri uri) {
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
     }
-
-    /*
-    private void getRealPathFromURI(String uri, CallbackContext callbackContext) {
-        if (uri != null && uri.length() > 0) {
-            callbackContext.success(this.getFile(uri));
-        } else {
-            callbackContext.error("Expected one non-empty string argument.");
-        }
-    }
-
-    private String getFile(String uri) {
-
-         Uri contentUri = Uri.parse(uri);
-         String[] proj = { MediaStore.Images.Media.DATA };
-         CursorLoader loader = new CursorLoader(cordova.getActivity(), contentUri, proj, null, null, null);
-         Cursor cursor = loader.loadInBackground();
-         int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-         cursor.moveToFirst();
-         String fileName = cursor.getString(column_index);
-         return fileName;
-        /*Cursor cursor = cordova.getActivity().getContentResolver()
-            .query(uri, null, null, null, null, null);
-        String displayName = "";
-        try {
-            if (cursor != null && cursor.moveToFirst()) {
-                displayName = cursor.getString(
-                        cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-            }
-        } finally {
-            cursor.close();
-        }
-        return displayName;
-     }*/
 }
