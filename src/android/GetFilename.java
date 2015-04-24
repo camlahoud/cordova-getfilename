@@ -1,4 +1,4 @@
-package com.plineo.cordova.getfilename;
+package com.plineo.cordova;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;

@@ -19,11 +19,11 @@
 
         <config-file target="res/xml/config.xml" parent="/widget">        
             <feature name="GetFilename">
-                <param name="android-package" value="com.plineo.cordova.getfilename"/>
+                <param name="android-package" value="com.plineo.cordova.GetFilename"/>
             </feature> 
         </config-file> 
                 
-        <source-file src="src/android/GetFilename.java" target-dir="src/com/plineo/cordova/getfilename"/>
+        <source-file src="src/android/GetFilename.java" target-dir="src/com/plineo/cordova"/>
                         
     </platform>
     
